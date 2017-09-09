@@ -1,0 +1,56 @@
+ 
+post_install() {
+    #replacing config files
+    \cp -r /etc/namib-config-system/. /
+
+    #enable sudo
+    chmod 750 /etc/sudoers.d
+    chmod 440 /etc/sudoers.d/g_wheel
+    chown -R root /etc/sudoers.d
+    chmod -R 755 /etc/sudoers.d
+    echo "Enabled Sudo"
+
+    chmod +x /etc/systemd/scripts/choose-mirror
+    chmod +x /etc/systemd/scripts/updatePackageList.sh
+
+    systemctl enable pacman-init.service lightdm.service choose-mirror.service
+    echo "pacman-init.service, lightdm.service, choose-mirror.service is enabled"
+
+    systemctl enable reflector.service
+    echo "reflector.service is enabled"
+
+    systemctl enable updatePackageList.service
+    echo "updatePackageList.service is enabled"
+
+    systemctl enable tlp.service
+    systemctl enable tlp-sleep.service
+    echo "Linux Advanced Power Management is enabled"
+
+    set -e -u
+    umask 022
+}
+
+post_upgrade() {
+    post_install $1
+}
+
+pre_remove() {
+    systemctl disable reflector.service
+    echo "reflector.service is disabled"
+
+    systemctl disable updatePackageList.service
+    echo "updatePackageList.service is disabled"
+
+    systemctl disable pacman-init.service
+    echo "pacman-init.service is disabled"
+
+    systemctl disable lightdm.service
+    echo "lightdm.service is disabled"
+
+    systemctl disable choose-mirror.service
+    echo "choose-mirror.service is disabled"
+
+    systemctl disable tlp.service
+    systemctl disable tlp-sleep.service
+    echo "Linux Advanced Power Management is disabled"
+}

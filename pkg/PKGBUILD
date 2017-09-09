@@ -1,0 +1,113 @@
+pkgname=namib-config-system
+pkgdesc='Namib system config files'
+pkgver=0.0.1
+pkgrel=1
+arch=('any')
+url="https://github.com/MeerkatBrowser/Namib-Config-System"
+license=('GPL')
+depends=('sudo>=1.8' 
+         'polkit>=0.113' 
+         'pam>=1.3' 
+         'xdg-user-dirs>=0.15' 
+         'systemd>=234.11' 
+         'blueman'
+         'reflector'
+         'lightdm'
+         'lightdm-gtk-greeter'
+         'tlp>=1.0'
+         'xorg-server>=1.19')
+source=("git+$url.git")
+sha256sums=('SKIP')
+install=$pkgname.install
+
+package() {
+    package_path="/etc/$pkgname"
+    cd "${srcdir}/${pkgname}"
+
+    install -d ${pkgdir}$package_path/etc/bluetooth/
+    install -m644 etc/bluetooth/* "${pkgdir}$package_path/etc/bluetooth/"
+
+    install -d ${pkgdir}$package_path/etc/default/
+    install -m644 etc/default/* "${pkgdir}$package_path/etc/default/"
+
+    install -d ${pkgdir}$package_path/etc/lightdm/
+    install -m644 etc/lightdm/* "${pkgdir}$package_path/etc/lightdm/"
+
+    install -d ${pkgdir}$package_path/etc/pam.d/
+    install -m644 etc/pam.d/* "${pkgdir}$package_path/etc/pam.d/"
+
+    install -d ${pkgdir}$package_path/etc/sudoers.d/
+    install -m644 etc/sudoers.d/* "${pkgdir}$package_path/etc/sudoers.d/"
+    
+    #-------------------------systemd config files--------------
+    install -d ${pkgdir}$package_path/etc/systemd/network/
+    install -m644 etc/systemd/network/* "${pkgdir}$package_path/etc/systemd/network/"
+
+    install -d ${pkgdir}$package_path/etc/systemd/scripts/
+    install -m644 etc/systemd/scripts/* "${pkgdir}$package_path/etc/systemd/scripts/"
+
+    install -d ${pkgdir}$package_path/etc/systemd/system/
+    install -m644 etc/systemd/system/* "${pkgdir}$package_path/etc/systemd/system/"
+
+     #-------------------------dconf config files--------------
+    install -d ${pkgdir}$package_path/etc/dconf/db/
+    install -m644 etc/dconf/db/* "${pkgdir}$package_path/etc/dconf/db/"
+
+    install -d ${pkgdir}$package_path/etc/dconf/profile/
+    install -m644 etc/dconf/profile/* "${pkgdir}$package_path/etc/dconf/profile/"
+    
+    #-------------------------udev rules-------------------------
+    install -d ${pkgdir}$package_path/etc/udev/rules.d/
+    install -m644 etc/udev/rules.d/* "${pkgdir}$package_path/etc/udev/rules.d/"
+
+    #-------------------------x11 configs-------------------------
+    install -d ${pkgdir}$package_path/etc/X11/xorg.conf.d/
+    install -m644 etc/X11/xorg.conf.d/* "${pkgdir}$package_path/etc/X11/xorg.conf.d/"
+
+    #-------------------------autostart files-------------------------
+    install -d ${pkgdir}$package_path/etc/xdg/autostart/
+    install -m644 etc/xdg/autostart/* "${pkgdir}$package_path/etc/xdg/autostart/"
+
+    #-------------------------lib config files----------------------
+    install -d ${pkgdir}$package_path/usr/lib/
+    install -m644 usr/lib/* "${pkgdir}$package_path/usr/lib/"
+    
+    #-------------------------glib config files----------------------
+    install -d ${pkgdir}$package_path/usr/share/glib-2.0/schemas
+    install -m644 usr/share/glib-2.0/schemas/* "${pkgdir}$package_path/usr/share/glib-2.0/schemas"
+    
+    #-------------------------mate-panel config files----------------------
+    install -d ${pkgdir}$package_path/usr/share/mate-panel/layouts
+    install -m644 usr/share/mate-panel/layouts/* "${pkgdir}$package_path/usr/share/mate-panel/layouts"
+
+    #-------------------------icons config files----------------------
+    install -d ${pkgdir}$package_path/usr/share/icons/Arc/16x16/places
+    install -m644 usr/share/icons/Arc/16x16/places/* "${pkgdir}$package_path/usr/share/icons/Arc/16x16/places"    
+    
+    install -d ${pkgdir}$package_path/usr/share/icons/Arc/22x22/places
+    install -m644 usr/share/icons/Arc/22x22/places/* "${pkgdir}$package_path/usr/share/icons/Arc/22x22/places" 
+    
+    install -d ${pkgdir}$package_path/usr/share/icons/Arc/24x24/places/
+    install -m644 usr/share/icons/Arc/24x24/places/* "${pkgdir}$package_path/usr/share/icons/Arc/24x24/places" 
+    
+    install -d ${pkgdir}$package_path/usr/share/icons/Arc/32x32/places/
+    install -m644 usr/share/icons/Arc/32x32/places/* "${pkgdir}$package_path/usr/share/icons/Arc/32x32/places" 
+    
+    install -d ${pkgdir}$package_path/usr/share/icons/Arc/48x48/places/
+    install -m644 usr/share/icons/Arc/48x48/places/* "${pkgdir}$package_path/usr/share/icons/Arc/48x48/places" 
+    
+    install -d ${pkgdir}$package_path/usr/share/icons/Arc/places/16/
+    install -m644 usr/share/icons/Arc/places/16/* "${pkgdir}$package_path/usr/share/icons/Arc/places/16" 
+    
+    install -d ${pkgdir}$package_path/usr/share/icons/Arc/places/22/
+    install -m644 usr/share/icons/Arc/places/22/* "${pkgdir}$package_path/usr/share/icons/Arc/places/22" 
+    
+    install -d ${pkgdir}$package_path/usr/share/icons/Arc/places/24/
+    install -m644 usr/share/icons/Arc/places/24/* "${pkgdir}$package_path/usr/share/icons/Arc/places/24" 
+    
+    install -d ${pkgdir}$package_path/usr/share/icons/Arc/places/32/
+    install -m644 usr/share/icons/Arc/places/32/* "${pkgdir}$package_path/usr/share/icons/Arc/places/32" 
+    
+    install -d ${pkgdir}$package_path/usr/share/icons/Arc/places/48/
+    install -m644 usr/share/icons/Arc/places/48/* "${pkgdir}$package_path/usr/share/icons/Arc/places/48" 
+}
