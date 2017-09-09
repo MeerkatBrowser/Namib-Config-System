@@ -51,7 +51,7 @@ package() {
 
      #-------------------------dconf config files--------------
     install -d ${pkgdir}$package_path/etc/dconf/db/local.d/
-    install -m644 etc/dconf/db/locale.d/* "${pkgdir}$package_path/etc/dconf/db/local.d/"
+    install -m644 etc/dconf/db/local.d/* "${pkgdir}$package_path/etc/dconf/db/local.d/"
 
     install -d ${pkgdir}$package_path/etc/dconf/profile/
     install -m644 etc/dconf/profile/* "${pkgdir}$package_path/etc/dconf/profile/"
