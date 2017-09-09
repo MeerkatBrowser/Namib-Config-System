@@ -3,7 +3,7 @@ pkgdesc='Namib system config files'
 pkgver=0.0.1
 pkgrel=1
 arch=('any')
-url="https://github.com/MeerkatBrowser/Namib-Config-System"
+url="https://github.com/MeerkatBrowser/namib-config-system"
 license=('GPL')
 depends=('sudo>=1.8' 
          'polkit>=0.113' 
