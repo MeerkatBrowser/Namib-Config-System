@@ -29,6 +29,9 @@ post_install() {
     glib-compile-schemas /usr/share/glib-2.0/schemas
     echo "GLib schemas compiled"
 
+    gtk-update-icon-cache -f -q '/usr/share/icons/Arc'	
+    echo "Icon cache updated"
+
     set -e -u
     umask 022
 }
