@@ -25,6 +25,9 @@ post_install() {
     systemctl enable tlp.service
     systemctl enable tlp-sleep.service
     echo "Linux Advanced Power Management is enabled"
+    
+    glib-compile-schemas /usr/share/glib-2.0/schemas
+    echo "GLib schemas compiled"
 
     set -e -u
     umask 022
