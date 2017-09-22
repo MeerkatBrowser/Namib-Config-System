@@ -34,7 +34,7 @@
       <description>Determines how the image set by wallpaper_filename is rendered.  Possible values are "wallpaper", "centered", "scaled", "stretched", "zoom", "spanned".</description>
     </key>
     <key name="picture-filename" type="s">
-      <default>'/usr/share/backgrounds/wallpaper-2688809.jpg'</default>
+      <default>'/usr/share/backgrounds/mate/1709.jpg'</default>
       <summary>Picture Filename</summary>
       <description>File to use for the background image.</description>
     </key>
