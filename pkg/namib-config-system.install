@@ -19,9 +19,6 @@ post_install() {
     systemctl enable reflector.service
     echo "reflector.service is enabled"
 
-    systemctl enable updatePackageList.service
-    echo "updatePackageList.service is enabled"
-
     systemctl enable tlp.service
     systemctl enable tlp-sleep.service
     echo "Linux Advanced Power Management is enabled"
@@ -43,9 +40,6 @@ post_upgrade() {
 pre_remove() {
     systemctl disable reflector.service
     echo "reflector.service is disabled"
-
-    systemctl disable updatePackageList.service
-    echo "updatePackageList.service is disabled"
 
     systemctl disable pacman-init.service
     echo "pacman-init.service is disabled"
