@@ -1,6 +1,6 @@
 pkgname=namib-config-system
 pkgdesc='Namib system config files'
-pkgver=17.09
+pkgver=17.11
 pkgrel=1
 arch=('any')
 url="https://github.com/MeerkatBrowser/namib-config-system"
@@ -16,6 +16,9 @@ package() {
     install -d ${pkgdir}$package_path/etc/bluetooth/
     install -m644 etc/bluetooth/* "${pkgdir}$package_path/etc/bluetooth/"
 
+    install -d ${pkgdir}$package_path/etc/lsb-release
+    install -m644 etc/lsb-release "${pkgdir}$package_path/etc/lsb-release"
+    
     install -d ${pkgdir}$package_path/etc/default/
     install -m644 etc/default/* "${pkgdir}$package_path/etc/default/"
 
