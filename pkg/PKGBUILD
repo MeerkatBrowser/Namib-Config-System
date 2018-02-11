@@ -63,43 +63,4 @@ package() {
     #-------------------------lib config files----------------------
     install -d ${pkgdir}$package_path/usr/lib/
     install -m644 usr/lib/* "${pkgdir}$package_path/usr/lib/"
-    
-    #-------------------------glib config files----------------------
-    install -d ${pkgdir}$package_path/usr/share/glib-2.0/schemas/
-    install -m644 usr/share/glib-2.0/schemas/* "${pkgdir}$package_path/usr/share/glib-2.0/schemas/"
-    
-    #-------------------------mate-panel config files----------------------
-    install -d ${pkgdir}$package_path/usr/share/mate-panel/layouts/
-    install -m644 usr/share/mate-panel/layouts/* "${pkgdir}$package_path/usr/share/mate-panel/layouts/"
-
-    #-------------------------icons config files----------------------
-    install -d ${pkgdir}$package_path/usr/share/icons/Arc/16x16/places/
-    install -m644 usr/share/icons/Arc/16x16/places/* "${pkgdir}$package_path/usr/share/icons/Arc/16x16/places/"    
-    
-    install -d ${pkgdir}$package_path/usr/share/icons/Arc/22x22/places/
-    install -m644 usr/share/icons/Arc/22x22/places/* "${pkgdir}$package_path/usr/share/icons/Arc/22x22/places/" 
-    
-    install -d ${pkgdir}$package_path/usr/share/icons/Arc/24x24/places/
-    install -m644 usr/share/icons/Arc/24x24/places/* "${pkgdir}$package_path/usr/share/icons/Arc/24x24/places/" 
-    
-    install -d ${pkgdir}$package_path/usr/share/icons/Arc/32x32/places/
-    install -m644 usr/share/icons/Arc/32x32/places/* "${pkgdir}$package_path/usr/share/icons/Arc/32x32/places/" 
-    
-    install -d ${pkgdir}$package_path/usr/share/icons/Arc/48x48/places/
-    install -m644 usr/share/icons/Arc/48x48/places/* "${pkgdir}$package_path/usr/share/icons/Arc/48x48/places/" 
-    
-    install -d ${pkgdir}$package_path/usr/share/icons/Arc/places/16/
-    install -m644 usr/share/icons/Arc/places/16/* "${pkgdir}$package_path/usr/share/icons/Arc/places/16/" 
-    
-    install -d ${pkgdir}$package_path/usr/share/icons/Arc/places/22/
-    install -m644 usr/share/icons/Arc/places/22/* "${pkgdir}$package_path/usr/share/icons/Arc/places/22/" 
-    
-    install -d ${pkgdir}$package_path/usr/share/icons/Arc/places/24/
-    install -m644 usr/share/icons/Arc/places/24/* "${pkgdir}$package_path/usr/share/icons/Arc/places/24/" 
-    
-    install -d ${pkgdir}$package_path/usr/share/icons/Arc/places/32/
-    install -m644 usr/share/icons/Arc/places/32/* "${pkgdir}$package_path/usr/share/icons/Arc/places/32/" 
-    
-    install -d ${pkgdir}$package_path/usr/share/icons/Arc/places/48/
-    install -m644 usr/share/icons/Arc/places/48/* "${pkgdir}$package_path/usr/share/icons/Arc/places/48/" 
 }
