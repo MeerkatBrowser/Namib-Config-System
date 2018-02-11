@@ -16,8 +16,7 @@ package() {
     install -d ${pkgdir}$package_path/etc/bluetooth/
     install -m644 etc/bluetooth/* "${pkgdir}$package_path/etc/bluetooth/"
 
-    install -d ${pkgdir}$package_path/etc/lsb-release
-    install -m644 etc/lsb-release "${pkgdir}$package_path/etc/lsb-release"
+    install -m644 etc/lsb-release "${pkgdir}$package_path/etc"
     
     install -d ${pkgdir}$package_path/etc/default/
     install -m644 etc/default/* "${pkgdir}$package_path/etc/default/"
