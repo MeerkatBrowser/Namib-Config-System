@@ -5,61 +5,68 @@ pkgrel=1
 arch=('any')
 url="https://github.com/MeerkatBrowser/namib-config-system"
 license=('GPL')
+depends=('lightdm' 'lightdm-gtk-greeter' 'papirus-icon-theme' 'materia-namib-gtk-theme')
 source=("git+$url.git")
 sha256sums=('SKIP')
-install=$pkgname.install
+#install=$pkgname.install
 
 package() {
-    package_path="/etc/$pkgname"
-    cd "${srcdir}/${pkgname}"
+    install -d ${pkgdir}/usr/lib
+	install -d ${pkgdir}/etc
 
-    install -d ${pkgdir}$package_path/etc/bluetooth/
-    install -m644 etc/bluetooth/* "${pkgdir}$package_path/etc/bluetooth/"
+    cp -r ${srcdir}/namib-config-system/usr/lib/. "${pkgdir}/usr/lib/"
+	cp -r ${srcdir}/namib-config-system/etc/. "${pkgdir}/etc/"
 
-    install -m644 etc/lsb-release "${pkgdir}$package_path/etc"
+    #package_path="/etc/$pkgname"
+    #cd "${srcdir}/${pkgname}"
+
+    #install -d ${pkgdir}$package_path/etc/bluetooth/
+    #install -m644 etc/bluetooth/* "${pkgdir}$package_path/etc/bluetooth/"
+
+    #install -m644 etc/lsb-release "${pkgdir}$package_path/etc"
     
-    install -d ${pkgdir}$package_path/etc/default/
-    install -m644 etc/default/* "${pkgdir}$package_path/etc/default/"
+    #install -d ${pkgdir}$package_path/etc/default/
+    #install -m644 etc/default/* "${pkgdir}$package_path/etc/default/"
 
-    install -d ${pkgdir}$package_path/etc/lightdm/
-    install -m644 etc/lightdm/* "${pkgdir}$package_path/etc/lightdm/"
+    #install -d ${pkgdir}$package_path/etc/lightdm/
+    #install -m644 etc/lightdm/* "${pkgdir}$package_path/etc/lightdm/"
 
-    install -d ${pkgdir}$package_path/etc/pam.d/
-    install -m644 etc/pam.d/* "${pkgdir}$package_path/etc/pam.d/"
+    #install -d ${pkgdir}$package_path/etc/pam.d/
+    #install -m644 etc/pam.d/* "${pkgdir}$package_path/etc/pam.d/"
 
-    install -d ${pkgdir}$package_path/etc/sudoers.d/
-    install -m644 etc/sudoers.d/* "${pkgdir}$package_path/etc/sudoers.d/"
+    #install -d ${pkgdir}$package_path/etc/sudoers.d/
+    #install -m644 etc/sudoers.d/* "${pkgdir}$package_path/etc/sudoers.d/"
     
     #-------------------------systemd config files--------------
-    install -d ${pkgdir}$package_path/etc/systemd/network/
-    install -m644 etc/systemd/network/* "${pkgdir}$package_path/etc/systemd/network/"
+    #install -d ${pkgdir}$package_path/etc/systemd/network/
+    #install -m644 etc/systemd/network/* "${pkgdir}$package_path/etc/systemd/network/"
 
-    install -d ${pkgdir}$package_path/etc/systemd/scripts/
-    install -m644 etc/systemd/scripts/* "${pkgdir}$package_path/etc/systemd/scripts/"
+    #install -d ${pkgdir}$package_path/etc/systemd/scripts/
+    #install -m644 etc/systemd/scripts/* "${pkgdir}$package_path/etc/systemd/scripts/"
 
-    install -d ${pkgdir}$package_path/etc/systemd/system/
-    install -m644 etc/systemd/system/* "${pkgdir}$package_path/etc/systemd/system/"
+    #install -d ${pkgdir}$package_path/etc/systemd/system/
+    #install -m644 etc/systemd/system/* "${pkgdir}$package_path/etc/systemd/system/"
 
      #-------------------------dconf config files--------------
-    install -d ${pkgdir}$package_path/etc/dconf/db/local.d/
-    install -m644 etc/dconf/db/local.d/* "${pkgdir}$package_path/etc/dconf/db/local.d/"
+    #install -d ${pkgdir}$package_path/etc/dconf/db/local.d/
+    #install -m644 etc/dconf/db/local.d/* "${pkgdir}$package_path/etc/dconf/db/local.d/"
 
-    install -d ${pkgdir}$package_path/etc/dconf/profile/
-    install -m644 etc/dconf/profile/* "${pkgdir}$package_path/etc/dconf/profile/"
+    #install -d ${pkgdir}$package_path/etc/dconf/profile/
+    #install -m644 etc/dconf/profile/* "${pkgdir}$package_path/etc/dconf/profile/"
     
     #-------------------------udev rules-------------------------
-    install -d ${pkgdir}$package_path/etc/udev/rules.d/
-    install -m644 etc/udev/rules.d/* "${pkgdir}$package_path/etc/udev/rules.d/"
+    #install -d ${pkgdir}$package_path/etc/udev/rules.d/
+    #install -m644 etc/udev/rules.d/* "${pkgdir}$package_path/etc/udev/rules.d/"
 
     #-------------------------x11 configs-------------------------
-    install -d ${pkgdir}$package_path/etc/X11/xorg.conf.d/
-    install -m644 etc/X11/xorg.conf.d/* "${pkgdir}$package_path/etc/X11/xorg.conf.d/"
+    #install -d ${pkgdir}$package_path/etc/X11/xorg.conf.d/
+    #install -m644 etc/X11/xorg.conf.d/* "${pkgdir}$package_path/etc/X11/xorg.conf.d/"
 
     #-------------------------autostart files-------------------------
-    install -d ${pkgdir}$package_path/etc/xdg/autostart/
-    install -m644 etc/xdg/autostart/* "${pkgdir}$package_path/etc/xdg/autostart/"
+    #install -d ${pkgdir}$package_path/etc/xdg/autostart/
+    #install -m644 etc/xdg/autostart/* "${pkgdir}$package_path/etc/xdg/autostart/"
 
     #-------------------------lib config files----------------------
-    install -d ${pkgdir}$package_path/usr/lib/
-    install -m644 usr/lib/* "${pkgdir}$package_path/usr/lib/"
+    #install -d ${pkgdir}$package_path/usr/lib/
+    #install -m644 usr/lib/* "${pkgdir}$package_path/usr/lib/"
 }
