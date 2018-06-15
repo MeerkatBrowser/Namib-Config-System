@@ -16,7 +16,7 @@ package() {
 	install -d ${pkgdir}/etc/bluetooth
     install -d ${pkgdir}/etc/dconf
     install -d ${pkgdir}/etc/default
-    install -d ${pkgdir}/etc/sudoers.d
+    install -m750 -d ${pkgdir}/etc/sudoers.d
     install -d ${pkgdir}/etc/X11
     install -d ${pkgdir}/etc/systemd
     install -d ${pkgdir}/etc/udev
