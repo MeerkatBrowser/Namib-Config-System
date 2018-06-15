@@ -18,7 +18,6 @@ post_install() {
     echo "Enabled Sudo"
 
     chmod +x /etc/systemd/scripts/choose-mirror
-    chmod +x /etc/systemd/scripts/updatePackageList.sh
 
     systemctl enable pacman-init.service lightdm.service choose-mirror.service
     echo "pacman-init.service, lightdm.service, choose-mirror.service is enabled"
