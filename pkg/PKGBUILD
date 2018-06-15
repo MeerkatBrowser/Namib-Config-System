@@ -8,14 +8,34 @@ license=('GPL')
 depends=('lightdm' 'lightdm-gtk-greeter' 'papirus-icon-theme' 'materia-namib-gtk-theme')
 source=("git+$url.git")
 sha256sums=('SKIP')
-#install=$pkgname.install
+install=$pkgname.install
 
 package() {
     install -d ${pkgdir}/usr/lib
-	install -d ${pkgdir}/etc
+    install -d ${pkgdir}/etc
+	install -d ${pkgdir}/etc/bluetooth
+    install -d ${pkgdir}/etc/dconf
+    install -d ${pkgdir}/etc/default
+    install -d ${pkgdir}/etc/sudoers.d
+    install -d ${pkgdir}/etc/X11
+    install -d ${pkgdir}/etc/systemd
+    install -d ${pkgdir}/etc/udev
+    install -d ${pkgdir}/etc/lightdm
+    install -d ${pkgdir}/etc/pam.d
+    install -d ${pkgdir}/etc/xdg/autostart
 
-    cp -r ${srcdir}/namib-config-system/usr/lib/. "${pkgdir}/usr/lib/"
-	cp -r ${srcdir}/namib-config-system/etc/. "${pkgdir}/etc/"
+    cp -r ${srcdir}/namib-config-system/usr/lib/os-release "${pkgdir}/usr/lib/os-release-namib"
+	cp -r ${srcdir}/namib-config-system/etc/bluetooth/main.conf "${pkgdir}/etc/bluetooth/main-namib.conf"
+    cp -r ${srcdir}/namib-config-system/etc/dconf/. "${pkgdir}/etc/dconf/"
+    cp -r ${srcdir}/namib-config-system/etc/sudoers.d/. "${pkgdir}/etc/sudoers.d/"
+    cp -r ${srcdir}/namib-config-system/etc/X11/. "${pkgdir}/etc/X11/"
+    cp -r ${srcdir}/namib-config-system/etc/systemd/. "${pkgdir}/etc/systemd/"
+    cp -r ${srcdir}/namib-config-system/etc/udev/. "${pkgdir}/etc/udev/"
+    cp -r ${srcdir}/namib-config-system/etc/default/useradd "${pkgdir}/etc/default/useradd-namib"
+    cp -r ${srcdir}/namib-config-system/etc/lsb-release "${pkgdir}/etc/lsb-release-namib"
+    cp -r ${srcdir}/namib-config-system/etc/lightdm/lightdm-gtk-greeter.conf "${pkgdir}/etc/lightdm/lightdm-gtk-greeter-namib.conf"
+    cp -r ${srcdir}/namib-config-system/etc/pam.d/lightdm "${pkgdir}/etc/pam.d/lightdm-namib"
+    cp -r ${srcdir}/namib-config-system/etc/xdg/autostart/user-dirs-update-gtk.desktop "${pkgdir}/etc/xdg/autostart/user-dirs-update-gtk-namib.desktop"
 
     #package_path="/etc/$pkgname"
     #cd "${srcdir}/${pkgname}"
