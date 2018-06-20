@@ -23,9 +23,11 @@ package() {
     install -d ${pkgdir}/etc/pam.d
     install -d ${pkgdir}/etc/xdg/autostart
     install -d ${pkgdir}/etc/modprobe.d
+    install -d ${pkgdir}/etc/modprobe.d
 
     cp -r ${srcdir}/namib-config-system/usr/lib/os-release "${pkgdir}/usr/lib/os-release-namib"
 	cp -r ${srcdir}/namib-config-system/etc/bluetooth/main.conf "${pkgdir}/etc/bluetooth/main-namib.conf"
+    cp -r ${srcdir}/namib-config-system/etc/dconf/. "${pkgdir}/etc/dconf/"
     cp -r ${srcdir}/namib-config-system/etc/sudoers.d/. "${pkgdir}/etc/sudoers.d/"
     cp -r ${srcdir}/namib-config-system/etc/X11/. "${pkgdir}/etc/X11/"
     cp -r ${srcdir}/namib-config-system/etc/systemd/. "${pkgdir}/etc/systemd/"
