@@ -22,8 +22,6 @@ package() {
     install -d ${pkgdir}/etc/lightdm
     install -d ${pkgdir}/etc/pam.d
     install -d ${pkgdir}/etc/xdg/autostart
-    install -d ${pkgdir}/etc/modprobe.d
-    install -d ${pkgdir}/etc/modprobe.d
 
     cp -r ${srcdir}/namib-config-system/usr/lib/os-release "${pkgdir}/usr/lib/os-release-namib"
 	cp -r ${srcdir}/namib-config-system/etc/bluetooth/main.conf "${pkgdir}/etc/bluetooth/main-namib.conf"
@@ -37,7 +35,6 @@ package() {
     cp -r ${srcdir}/namib-config-system/etc/lightdm/lightdm-gtk-greeter.conf "${pkgdir}/etc/lightdm/lightdm-gtk-greeter-namib.conf"
     cp -r ${srcdir}/namib-config-system/etc/pam.d/lightdm "${pkgdir}/etc/pam.d/lightdm-namib"
     cp -r ${srcdir}/namib-config-system/etc/xdg/autostart/user-dirs-update-gtk.desktop "${pkgdir}/etc/xdg/autostart/user-dirs-update-gtk-namib.desktop"
-     cp -r ${srcdir}/namib-config-system/etc/modprobe.d/. "${pkgdir}/etc/modprobe.d/"
 
     #package_path="/etc/$pkgname"
     #cd "${srcdir}/${pkgname}"
