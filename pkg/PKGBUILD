@@ -1,7 +1,7 @@
 pkgname=namib-config-system
 pkgdesc='Namib system config files'
 pkgver=18.08
-pkgrel=1
+pkgrel=2
 arch=('any')
 url="https://github.com/MeerkatBrowser/namib-config-system"
 license=('GPL')
