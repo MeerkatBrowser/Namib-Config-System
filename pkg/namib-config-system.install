@@ -2,13 +2,13 @@
 post_install() {
     #replacing config files
     #\cp -r /etc/namib-config-system/. /
-    \ln -sf /usr/lib/os-release-namib /usr/lib/os-release
-    \ln -sf /etc/bluetooth/main-namib.conf /etc/bluetooth/main.conf
-    \ln -sf /etc/default/useradd-namib /etc/default/useradd
-    \ln -sf /etc/lsb-release-namib /etc/lsb-release
-    \ln -sf /etc/lightdm/lightdm-gtk-greeter-namib.conf /etc/lightdm/lightdm-gtk-greeter.conf
-    \ln -sf /etc/pam.d/lightdm-namib /etc/pam.d/lightdm
-    \ln -sf /etc/xdg/autostart/user-dirs-update-gtk-namib.desktop /etc/xdg/autostart/user-dirs-update-gtk.desktop
+    \cp -r /usr/lib/os-release-namib /usr/lib/os-release
+    \cp -r /etc/bluetooth/main-namib.conf /etc/bluetooth/main.conf
+    \cp -r /etc/default/useradd-namib /etc/default/useradd
+    \cp -r /etc/lsb-release-namib /etc/lsb-release
+    \cp -r /etc/lightdm/lightdm-gtk-greeter-namib.conf /etc/lightdm/lightdm-gtk-greeter.conf
+    \cp -r /etc/pam.d/lightdm-namib /etc/pam.d/lightdm
+    \cp -r /etc/xdg/autostart/user-dirs-update-gtk-namib.desktop /etc/xdg/autostart/user-dirs-update-gtk.desktop
 
     #enable sudo
     chmod 750 /etc/sudoers.d
